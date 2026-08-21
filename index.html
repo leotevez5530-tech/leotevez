@@ -3,49 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rocket League - Consejos</title>
+
+  <title>Rocket League Hub</title>
 
   <style>
     * {
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0b1020;
+      background: #070b16;
       color: white;
     }
 
     header {
-      background: linear-gradient(135deg, #171d35, #0b1020);
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 45px 20px;
+      padding: 40px 20px;
+      background:
+        radial-gradient(circle at top, #164b91, transparent 45%),
+        linear-gradient(135deg, #101a38, #070b16);
     }
 
-    header h1 {
-      font-size: 42px;
-      margin: 0 0 10px;
+    .hero h1 {
+      font-size: clamp(42px, 10vw, 80px);
+      margin: 0;
+      text-shadow: 0 0 20px #268cff;
     }
 
-    header p {
-      font-size: 18px;
-      color: #b9c2d0;
+    .hero p {
+      font-size: 20px;
+      color: #c7d4ee;
+      max-width: 650px;
+      margin: 20px auto;
+      line-height: 1.5;
+    }
+
+    .boton {
+      display: inline-block;
+      padding: 14px 24px;
+      background: #168cff;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      margin: 8px;
+      transition: 0.2s;
+    }
+
+    .boton:hover {
+      transform: translateY(-3px);
+      background: #36a2ff;
     }
 
     nav {
-      background: #151b2e;
-      padding: 15px;
-      text-align: center;
       position: sticky;
       top: 0;
+      z-index: 10;
+      background: #0d1325;
+      border-bottom: 1px solid #263454;
+      padding: 14px 8px;
+      text-align: center;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 12px;
+      margin: 5px 8px;
       font-weight: bold;
+      font-size: 14px;
     }
 
     nav a:hover {
@@ -53,134 +85,136 @@
     }
 
     main {
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
-      padding: 25px;
+      padding: 20px;
     }
 
     section {
-      background: #151b2e;
-      margin: 20px 0;
+      padding: 50px 0;
+    }
+
+    .titulo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .titulo h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #38a5ff;
+    }
+
+    .titulo p {
+      color: #aeb9cf;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #11192d;
+      border: 1px solid #273858;
+      border-radius: 16px;
+      padding: 22px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #329dff;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: #b8c3d8;
+      line-height: 1.6;
+    }
+
+    .rango {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .bronce { color: #c98d62; }
+    .plata { color: #c8d2df; }
+    .oro { color: #ffd447; }
+    .platino { color: #6de0df; }
+    .diamante { color: #48a8ff; }
+    .champion { color: #bd65ff; }
+    .grandchampion { color: #ff596d; }
+
+    .entrenamiento {
+      background: linear-gradient(135deg, #101d3c, #11192d);
+      border-radius: 18px;
       padding: 25px;
-      border-radius: 15px;
-      border: 1px solid #29324d;
+      margin-bottom: 15px;
+      border: 1px solid #2a426d;
     }
 
-    h2 {
-      color: #35a7ff;
-    }
-
-    .consejo {
-      background: #0f1527;
-      padding: 15px;
-      margin: 12px 0;
-      border-radius: 10px;
-    }
-
-    .consejo strong {
+    .entrenamiento h3 {
       color: #42d392;
+    }
+
+    .lista {
+      line-height: 2;
+      color: #c3ccdc;
+    }
+
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, #0e3970, #11192d);
+      border-radius: 20px;
+      padding: 45px 20px;
+      margin: 40px 0;
+    }
+
+    #mensaje {
+      color: #42d392;
+      font-weight: bold;
+      margin-top: 15px;
     }
 
     footer {
       text-align: center;
-      padding: 30px;
-      color: #8d96a8;
+      padding: 35px 20px;
+      background: #050810;
+      color: #77829a;
+      border-top: 1px solid #1c2944;
     }
 
-    button {
-      background: #35a7ff;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+    @media (max-width: 600px) {
+      nav a {
+        display: inline-block;
+        margin: 6px;
+      }
 
-    button:hover {
-      background: #1689df;
+      .hero p {
+        font-size: 17px;
+      }
+
+      section {
+        padding: 35px 0;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🚗 Rocket League</h1>
-    <p>Consejos, trucos y técnicas para mejorar</p>
-  </header>
-
-  <nav>
-    <a href="#consejos">Consejos</a>
-    <a href="#tecnicas">Técnicas</a>
-    <a href="#entrenamiento">Entrenamiento</a>
-  </nav>
-
-  <main>
-
-    <section id="consejos">
-      <h2>🔥 Consejos para mejorar</h2>
-
-      <div class="consejo">
-        <strong>1. No persigas la pelota</strong>
-        <p>Aprendé a posicionarte y esperá el momento correcto para atacar.</p>
-      </div>
-
-      <div class="consejo">
-        <strong>2. Mirá el campo</strong>
-        <p>Usá la cámara para saber dónde están tus compañeros y rivales.</p>
-      </div>
-
-      <div class="consejo">
-        <strong>3. Practicá el control</strong>
-        <p>Aprendé a controlar la pelota antes de intentar jugadas complicadas.</p>
-      </div>
-    </section>
-
-    <section id="tecnicas">
-      <h2>⚡ Técnicas</h2>
-
-      <div class="consejo">
-        <strong>Air Roll</strong>
-        <p>Practicá poco a poco el control del auto en el aire.</p>
-      </div>
-
-      <div class="consejo">
-        <strong>Flick</strong>
-        <p>Aprendé a levantar la pelota y usar el movimiento del auto para pegarle.</p>
-      </div>
-
-      <div class="consejo">
-        <strong>Rotaciones</strong>
-        <p>Volvé a tu posición después de atacar para no dejar solo a tu compañero.</p>
-      </div>
-    </section>
-
-    <section id="entrenamiento">
-      <h2>🎯 Entrenamiento</h2>
+  <!-- INICIO -->
+  <header id="inicio">
+    <div class="hero">
+      <h1>🚗⚽ ROCKET LEAGUE</h1>
 
       <p>
-        Una buena rutina de entrenamiento puede ayudarte a mejorar
-        el control, los tiros y la precisión.
-      </p>
-
-      <button onclick="mostrarMensaje()">💪 ¡A entrenar!</button>
-
-      <p id="mensaje"></p>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>🚗 Rocket League Consejos — Página creada por Leo</p>
-  </footer>
-
-  <script>
-    function mostrarMensaje() {
-      document.getElementById("mensaje").textContent =
-        "🔥 ¡Dale Leo! A practicar y subir de rango.";
-    }
-  </script>
-
-</body>
-</html>
+        Bienvenido a Rocket League Hub.
+       
