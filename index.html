@@ -1,115 +1,220 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rocket League Hub</title>
+  <title>Rocket League Hub</title>
 
-<style>
-*{
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#070b16;
-  color:white;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #070b16;
+      color: white;
+    }
 
-header{
-  min-height:420px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:40px 20px;
-  background:linear-gradient(135deg,#071126,#123b75,#080d1c);
-}
+    header {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      background:
+        radial-gradient(circle at top, #164b91, transparent 45%),
+        linear-gradient(135deg, #101a38, #070b16);
+    }
 
-.hero h1{
-  font-size:clamp(45px,10vw,90px);
-  margin:10px 0;
-  text-shadow:0 0 25px #168cff;
-}
+    .hero h1 {
+      font-size: clamp(42px, 10vw, 80px);
+      margin: 0;
+      text-shadow: 0 0 20px #268cff;
+    }
 
-.hero p{
-  font-size:22px;
-  color:#c8d3e8;
-}
+    .hero p {
+      font-size: 20px;
+      color: #c7d4ee;
+      max-width: 650px;
+      margin: 20px auto;
+      line-height: 1.5;
+    }
 
-.car{
-  font-size:70px;
-}
+    .boton {
+      display: inline-block;
+      padding: 14px 24px;
+      background: #168cff;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      margin: 8px;
+      transition: 0.2s;
+    }
 
-nav{
-  position:sticky;
-  top:0;
-  z-index:10;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-  padding:15px;
-  background:#11182b;
-  border-bottom:1px solid #263452;
-}
+    .boton:hover {
+      transform: translateY(-3px);
+      background: #36a2ff;
+    }
 
-nav a{
-  color:white;
-  text-decoration:none;
-  padding:12px 18px;
-  border-radius:12px;
-  font-weight:bold;
-  transition:.2s;
-}
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #0d1325;
+      border-bottom: 1px solid #263454;
+      padding: 14px 8px;
+      text-align: center;
+    }
 
-nav a:hover{
-  background:#168cff;
-  transform:translateY(-2px);
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 5px 8px;
+      font-weight: bold;
+      font-size: 14px;
+    }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:30px 18px;
-}
+    nav a:hover {
+      color: #35a7ff;
+    }
 
-section{
-  margin:35px 0;
-  padding:30px;
-  background:#11182b;
-  border:1px solid #263452;
-  border-radius:22px;
-  box-shadow:0 10px 35px #0005;
-}
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
 
-h2{
-  color:#35a7ff;
-  font-size:32px;
-  margin-top:0;
-}
+    section {
+      padding: 50px 0;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:18px;
-}
+    .titulo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-.card{
-  background:#0b1020;
-  padding:22px;
-  border-radius:17px;
-  border:1px solid #202c47;
-  transition:.25s;
-}
+    .titulo h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #38a5ff;
+    }
 
-.card:hover{
-  transform:translateY(-5px);
-  border-color:#168cff;
-}
+    .titulo p {
+      color: #aeb9cf;
+    }
 
-.card h3{
-  color:#42d
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #11192d;
+      border: 1px solid #273858;
+      border-radius: 16px;
+      padding: 22px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #329dff;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: #b8c3d8;
+      line-height: 1.6;
+    }
+
+    .rango {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .bronce { color: #c98d62; }
+    .plata { color: #c8d2df; }
+    .oro { color: #ffd447; }
+    .platino { color: #6de0df; }
+    .diamante { color: #48a8ff; }
+    .champion { color: #bd65ff; }
+    .grandchampion { color: #ff596d; }
+
+    .entrenamiento {
+      background: linear-gradient(135deg, #101d3c, #11192d);
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 15px;
+      border: 1px solid #2a426d;
+    }
+
+    .entrenamiento h3 {
+      color: #42d392;
+    }
+
+    .lista {
+      line-height: 2;
+      color: #c3ccdc;
+    }
+
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, #0e3970, #11192d);
+      border-radius: 20px;
+      padding: 45px 20px;
+      margin: 40px 0;
+    }
+
+    #mensaje {
+      color: #42d392;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: #050810;
+      color: #77829a;
+      border-top: 1px solid #1c2944;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: inline-block;
+        margin: 6px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      section {
+        padding: 35px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- INICIO -->
+  <header id="inicio">
+    <div class="hero">
+      <h1>🚗⚽ ROCKET LEAGUE</h1>
+
+      <p>
+        Bienvenido a Rocket League Hub.
+       
